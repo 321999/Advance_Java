@@ -91,4 +91,60 @@ driver software is provided by the database vendors
 jdbc api is independent of database 
 where driver software iw dependent of software 
   
-  
+
+  ```
+Advance java
+Add headings (Format > Paragraph styles) and they will appear in your table of contents.
+
+File storage 
+Provide less security 
+No efficient query processing 
+Less complexity to hanldle
+
+Database:
+Provide more security 
+Efficient query processing 
+Complex to handle 
+
+Database is the place where we store the data in structure or in organised manner 
+
+
+	Why do we require maven project vehicle working the jdbc 
+It provides several adavanteages like 
+Dependency management (prom.xml)
+	Maven will automatically download an include required dependencies ensuring that project has necessary libraries and build time
+
+CONSISTENT PROJECT 
+	MAVEN follows standard project structure making it easier to organise the code.it prompts the separation of source code,resources and configuration filles
+Allowing it for better code separation,mentanabliity and collaboration within the team 
+
+EASY PROJECT SETUP:
+Maven provides arche types(architecture types ) templates which are predefine project templates for difference dtype of application  
+
+Dependency version management:
+Continue integreatio 
+Standardise project life cycle 
+
+Maving naming convention 
+Group id
+	(reverse domain name)gid identifies the group of orgainisation who own the project it is typically writtain in reverse domain name 
+Example :if org domain is example.com then gid will be com.example 
+
+Artifact id (projecct name):
+	Artifact id represents the specific project within group it is name a project which will be used to identify the project within the organisation uniquely
+
+What is dependency
+	The dependency will maintained inside “pom.xml”
+In context with the maven project dependency in pom.xml file referseed to external library or modules that project relies on 
+
+Inside pom.xml file dependencies will be define inside 
+<dependencies>
+
+</dependencies>
+
+In OUR CASE we need to get postresql dependencies 
+To get the dependencies 
+	We need to serarfch for mvn 
+https://get.enterprisedb.com/postgresql/postgresql-14.8-2-windows-x64.exe
+
+```
