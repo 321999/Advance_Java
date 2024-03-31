@@ -35,5 +35,51 @@ purpose of diifereren addtion:
  ```
 	domain_extension.organisation_name.project_name.controller
   	domain_extension.organisation_name.project_name.view
-   	org.qspider.library.model
+   	gov.uidai.library.model
+	com.indian_website. gov
  ```
+## JDBC 
+java to database connectivity 
+* whenever we write java program and whenever that program need to communicate with the database we need jdbc api
+* jdbc api stands as an interface between java program and the database
+* jdbc api is an only api which helps to eastablish connection between java program and database
+# API 
+* Application programing interface
+* an api set of rules and protocols that defines how diffferent software component should interact with each other
+* it provides structuure and standardise way for different application or modules to communicate an exchange data
+
+  data:
+  data is an information about entity
+
+  ### data storage solution
+  	data storage is a concern which deals with where and how we store inforamtion
+  	* File storage
+  	* database
+  ```
+Advance java
+Add headings (Format > Paragraph styles) and they will appear in your table of contents.
+File storage 
+Provide less security 
+No efficient query processing 
+Less complexity to hanldle
+Database:
+Provide more security 
+Efficient query processing 
+Complex to handle 
+Database is the place where we store the data in structure or in organised manner 
+  
+
+## how does jdbc helps
+
+suppose java application need to comuunicate with the database then we will take the help fo jdbc api
+jdbc api will now convert any java instruction into database understandable language
+so we need something which can do conversion work 
+
+### Driver software will help to convert java istruction to database java understandable language and vice versa 
+
+# who will provide the driver software 
+driver software is provided by the database vendors 
+jdbc api is independent of database 
+where driver software iw dependent of software 
+  
+  
