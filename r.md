@@ -69,6 +69,13 @@ Complex to handle
 Database is the place where we store the data in structure or in organised manner 
   
 
+
+
+
+
+
+
+
 ## how does jdbc helps
 
 suppose java application need to comuunicate with the database then we will take the help fo jdbc api
@@ -76,6 +83,8 @@ jdbc api will now convert any java instruction into database understandable lang
 so we need something which can do conversion work 
 
 ### Driver software will help to convert java istruction to database java understandable language and vice versa 
+![image](https://github.com/321999/Advance_Java/assets/73833132/4b42885d-3781-43de-bcab-c63c2190f98e)
+
 
 # who will provide the driver software 
 driver software is provided by the database vendors 
