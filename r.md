@@ -17,3 +17,23 @@ purpose of diifereren addtion:
 		java micro addtion is a subset of java platform which is designed for resource constraint devices such as mobile phones
 		opera mini ,nokia naps ,google maps(earliesr version) 
 	Mvc ARCHITECTURE 
+
+ data logic,where getters an setters 
+ 	#View (user interface)
+  	* it represents current models state 
+   	* it takes input from user and display output to user
+
+ 	#Controller(buisiness logic)
+  	* controlles and decides how data is dipllayed
+   	* 
+    # what is MVC ARchitecture ?
+    	* it is software architecture pattern commonly used in development of appllication 
+     	* particularly in context with web applicatio and desktop applcation 
+      	* it is away to orgainise and structure a code to enhance the maintainability modularity and scalability 
+       ** package declaration 
+	##Naming convention
+ ```
+	domain_extension.organisation_name.project_name.controller
+  	domain_extension.organisation_name.project_name.view
+   	org.qspider.library.model
+ ```
