@@ -55,7 +55,7 @@ java to database connectivity
   	data storage is a concern which deals with where and how we store inforamtion
   	* File storage
   	* database
-  ```
+
 Advance java
 Add headings (Format > Paragraph styles) and they will appear in your table of contents.
 File storage 
