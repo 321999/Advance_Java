@@ -58,7 +58,7 @@ java to database connectivity
 
 Advance java
 Add headings (Format > Paragraph styles) and they will appear in your table of contents.
-File storage 
+||	File storage || database||
 Provide less security 
 No efficient query processing 
 Less complexity to hanldle
