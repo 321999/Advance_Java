@@ -57,6 +57,14 @@ java to database connectivity
   	* database
 
 Advance java
+
+| File storage         | database |
+|--------------|:-----:|-----------:|
+| Provide less security  |  Provide more security  |        739 |
+| No efficient query processing|  Efficient query processing  |          6 |
+|Less complexity to hanldle|Complex to handle |
+
+
 Add headings (Format > Paragraph styles) and they will appear in your table of contents.
 ||	File storage || database||
 Provide less security 
@@ -68,14 +76,6 @@ Efficient query processing
 Complex to handle 
 Database is the place where we store the data in structure or in organised manner 
   
-
-
-
-
-
-
-
-
 ## how does jdbc helps
 
 suppose java application need to comuunicate with the database then we will take the help fo jdbc api
