@@ -148,3 +148,180 @@ To get the dependencies
 https://get.enterprisedb.com/postgresql/postgresql-14.8-2-windows-x64.exe
 
 ```
+![image](https://github.com/321999/Advance_Java/assets/73833132/8d363066-704a-443a-a906-0d3dadb7faba)
+
+
+## Retrieve data from database 
+* To retriever data from database we need select query
+* To execute SELECT query we have dedicated method called executeQuery  and this return ResultSet object
+  	* what is ResultSet /
+  	  	* ResultSet is an interface which presetn in java.sql package
+  	  	* It holds data and acct as a curoso or poitner for the records
+  	  	* ResultSet is responsible to store the data which is coming from database
+  	  	  we can getr RESEULT SET AOBJECT BY CALY EXECUTE ewuery ()
+  	  	  RESULTset OBJECCT AMINAITAIN CURSER/JOINTER WHICH POINTTING TO PARTICULAR RECORD
+  	  	  tHE next() is used to move cursor/poinyer to nexta position
+  	  	  There are frew more mrethdos in REesultaset TPO FECH DATA FROM A PRATICULAR record
+  	  	  	* ResultSet.getInt(int ColumnsetIndex)
+  	  	  	* ResultSet.getInt(String columnName)
+  	  	  	* 	columnIndex which is nothing but the column no. starts from 1 and goes incredasidng fromm left to righth
+
+## JDBC 5 steps in detail 
+	### step1: laod or register
+ 	public static Class<?> forName(String className)
+                        throws ClassNotFoundException
+Returns the Class object associated with the class or interface with the given string name. Invoking this method is equivalent to:
+Class.forName(className, true, currentLoader)
+where currentLoader denotes the defining class loader of the current class.
+For example, the following code fragment returns the runtime Class descriptor for the class named java.lang.Thread:
+
+Class t = Class.forName("java.lang.Thread")
+A call to forName("X") causes the class named X to be initialized.
+
+Parameters:
+className - the fully qualified name of the desired class.
+Returns:
+the Class object for the class with the specified name.
+Throws:
+LinkageError - if the linkage fails
+ExceptionInInitializerError - if the initialization provoked by this method fails
+ClassNotFoundException - if the class cannot be located
+
+#### way 2:
+Register dRIVIER 
+Driver driver=new Driver();
+DriverManger dm=registerDrvier(driver);
+public static void registerDriver(Driver driver,
+                                  DriverAction da)
+                           throws SQLException
+Registers the given driver with the DriverManager. A newly-loaded driver class should call the method registerDriver to make itself known to the DriverManager. If the driver is currently registered, no action is taken.
+Parameters:
+driver - the new JDBC Driver that is to be registered with the DriverManager
+da - the DriverAction implementation to be used when DriverManager#deregisterDriver is called
+Throws:
+SQLException - if a database access error occurs
+NullPointerException - if driver is null
+Since:
+1.8
+
+step2 getconnection 
+connectio is an interface (it is presetn inside the java.sql package)
+public static Connection getConnection(String url,
+                                       String user,
+                                       String password)
+                                throws SQLException
+Attempts to establish a connection to the given database URL. The DriverManager attempts to select an appropriate driver from the set of registered JDBC drivers.
+Note: If the user or password property are also specified as part of the url, it is implementation-defined as to which value will take precedence. For maximum portability, an application should only specify a property once.
+
+Parameters:
+url - a database url of the form jdbc:subprotocol:subname
+user - the database user on whose behalf the connection is being made
+password - the user's password
+Returns:
+a connection to the URL
+Throws:
+SQLException - if a database access error occurs or the url is null
+SQLTimeoutException - when the driver has determined that the timeout value specified by the setLoginTimeout method has been exceeded and has at least tried to cancel the current database connection attempt
+
+## Creating connectio by single argument 
+public static Connection getConnection(String url)
+                                throws SQLException
+Attempts to establish a connection to the given database URL. The DriverManager attempts to select an appropriate driver from the set of registered JDBC drivers.
+Parameters:
+url - a database url of the form jdbc:subprotocol:subname
+(url?user=value&password)
+* in this ? is called separator and & is called to add the value 
+Returns:
+a connection to the URL
+Throws:
+SQLException - if a database access error occurs or the url is null
+SQLTimeoutException - when the driver has determined that the timeout value specified by the setLoginTimeout method has been exceeded and has at least tried to cancel the current database connection attempt
+
+## create a connectio by using two parameter
+
+public static Connection getConnection(String url,
+                                       Properties info)
+                                throws SQLException
+Attempts to establish a connection to the given database URL. The DriverManager attempts to select an appropriate driver from the set of registered JDBC drivers.
+Note: If a property is specified as part of the url and is also specified in the Properties object, it is implementation-defined as to which value will take precedence. For maximum portability, an application should only specify a property once.
+
+Parameters:
+url - a database url of the form jdbc:subprotocol:subname
+info - a list of arbitrary string tag/value pairs as connection arguments; normally at least a "user" and "password" property should be included
+Returns:
+a Connection to the URL
+Throws:
+SQLException - if a database access error occurs or the url is null
+SQLTimeoutException - when the driver has determined that the timeout value specified by the setLoginTimeout method has been exceeded and has at least tried to cancel the current database connection attempt
+
+## step 3:
+creation of statement 
+mainly we will be using statement for static queries 
+note : we can create dynamic queries with the help of statement but it comes with its own complexation thats why it is not recommmeded to create dynacmic queries usinng createstatement 
+tatement createStatement()
+                   throws SQLException
+Creates a Statement object for sending SQL statements to the database. SQL statements without parameters are normally executed using Statement objects. If the same SQL statement is executed many times, it may be more efficient to use a PreparedStatement object.
+
+
+Returns:
+a new default Statement object
+Throws:
+SQLException - if a database access error occurs or this method is called on a closed connection
+
+
+Transition from statement to prepared statement 
+** PERFORMANCE 
+	prepare statement are precompile on database server which means sql statement is passed and optimised and passed once this result through performance specially for sql queries that rer executed multiple times with differernt parameters
+ Database server can reuse the execcutio plan for precompiled statement reducing the overhead(load).
+
+ ** Readability and maintainability 
+ Prepared statement queries are more readable and mantainable compared to concatenated queries 
+ This makes separation between java code and sql queries withing java application
+ this application also reduces the risk of syntax sql 	
+
+
+
+ ```
+package createstatment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class usingSingleStatement {
+public static void main(String[] args) {
+	
+	try {
+		Class.forName("org.postgresql.Driver");
+		
+//		get connectio 
+		
+			Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/student?user=postgres&password=root");
+		
+//			connection.createStatement()//static
+			String query="INSERT INTO SR VALUES(?,?,?);";//? IS CALLED DELIMETER
+			
+			PreparedStatement preparestatement = connection.prepareStatement(query);
+			
+			preparestatement.setInt(1, 5);
+			preparestatement.setString(2,"krishna");
+			preparestatement.setInt(3,124123);
+			preparestatement.execute();
+	} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	
+	
+}
+}
+
+
+```
